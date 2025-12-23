@@ -1,5 +1,7 @@
 import listDate from "../../assets/data/Item.json";
-import "./ProductSection.scss";
+import "./ProductSection2.scss";
+import { FaRegHeart } from "react-icons/fa";
+import { IoIosArrowForward } from "react-icons/io";
 
 const ProductSection2 = () => {
   const bestItems = listDate.filter((item) => item.category === "pick");
@@ -13,6 +15,9 @@ const ProductSection2 = () => {
               src={require(`../../assets/images/Shoes/${item.image}`)}
               alt={item.sub1}
             />
+            <span>
+              <FaRegHeart />
+            </span>
             <div className="best-txt">
               <h2>{item.id}</h2>
               <p>{item.title}</p>
@@ -25,6 +30,20 @@ const ProductSection2 = () => {
           </li>
         ))}
       </ul>
+      <div className="indi-bottom">
+        <div className="indicator">
+          <span className="active"></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <div className="indi-txt">
+            <p>
+              상품 더 보기 <IoIosArrowForward />
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

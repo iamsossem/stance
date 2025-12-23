@@ -1,6 +1,6 @@
 @use "../../assets/scss/mixins" as *;
 
-#best-seller {
+#paceypick {
   width: 100%;
   height: auto;
   padding-bottom: 5rem;
@@ -11,6 +11,11 @@
   }
   ul {
     position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
     @include flex-layout(row, flex-start, center, 0);
     overflow: hidden;
     width: 100%;
@@ -114,6 +119,20 @@
         &.active {
           background-color: var(--Primary-300);
           height: 4px;
+        }
+      }
+      .indi-txt {
+        width: 150px;
+        display: flex;
+        align-items: center;
+        > p {
+          font-size: 1.125rem;
+          color: var(--Primary-300);
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          cursor: pointer;
+          white-space: nowrap;
         }
       }
     }
