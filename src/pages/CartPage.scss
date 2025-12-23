@@ -175,9 +175,7 @@
 }
 
 .sum {
-  font-size: 14px;
-  color: #111;
-  font-weight: 900;
+  @include subtitle-M();
 }
 
 /* 삭제 X 버튼 */
