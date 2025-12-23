@@ -1,0 +1,286 @@
+@use '../assets/scss/mixins' as *;
+@use '../assets/scss/fonts' as *;
+@use '../assets/scss/variables' as *;
+
+.cart-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+  background: #fff;
+}
+
+.cart-title {
+  @include title-h1();
+  margin: 12px 0 22px;
+}
+
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 320px;
+    align-items: start;
+  }
+}
+
+
+.cart-card {
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+}
+
+
+.cart-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: #fafafa;
+  border-bottom: 1px solid #e4e7ec;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  @include body-M();
+
+  input {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+
+.cart-list {
+  padding: 6px 0;
+}
+
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 22px 86px 1fr 34px;
+  gap: 12px;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #eef1f5;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+/* 이미지(일단 빈 박스) */
+.list-img {
+  width: 86px;
+  height: 86px;
+  border: 1px solid #e4e7ec;
+  border-radius: 10px;
+  background: #f3f4f6;
+  overflow: hidden;
+
+  /* 이미지 나중에 넣을 때 */
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+
+.item-info {
+  min-width: 0;
+}
+
+.brand{
+  @include subtitle-L();
+  color: var(static-black);
+  margin-bottom: 6px;
+}
+
+.name {
+  @include body-M();
+  margin-bottom: 12px;
+}
+
+/* 수량 + 가격 영역 */
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  @media (max-width: 520px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+.count {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e4e7ec;
+  border-radius: 10px;
+  padding: 6px 10px;
+  background: #fff;
+}
+
+.count-btn {
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 8px;
+  background: #eef2ff;
+  color: #1b55ff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.count-num {
+  width: 28px;
+  text-align: center;
+  font-weight: 900;
+  color: #111;
+}
+
+
+.prices {
+  text-align: right;
+
+  @media (max-width: 520px) {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+.unit {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.sum {
+  font-size: 14px;
+  color: #111;
+  font-weight: 900;
+}
+
+/* 삭제 X 버튼 */
+.remove {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #e4e7ec;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  color: #111;
+}
+
+.mini-summary {
+  padding: 14px 16px;
+  border-top: 1px solid #e4e7ec;
+  background: #fff;
+
+  .row-txt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #333;
+
+    &.total {
+      font-weight: 900;
+      color: #111;
+      padding-top: 12px;
+    }
+  }
+}
+
+
+.cart-right {
+  @media (min-width: 1024px) {
+    position: sticky;
+    top: 90px;
+  }
+}
+
+.summary-card {
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+  background: #fff;
+  padding: 18px 16px;
+}
+
+.summary-title {
+  font-size: 15px;
+  font-weight: 900;
+  margin-bottom: 14px;
+  color: #111;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+}
+
+.summary-divider {
+  height: 1px;
+  background: #e4e7ec;
+  margin: 10px 0 6px;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0 12px;
+  font-weight: 900;
+  font-size: 15px;
+  color: #111;
+}
+
+.summary-note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 600;
+}
+
+/* 할인 */
+.red-txt {
+  color: #fb3b3b;
+}
+
+/* 버튼 */
+.summary-order-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 900;
+  cursor: pointer;
+  width: 100%;
+  background: #1b55ff;
+  color: #fff;
+  border: 1px solid #e4e7ec;
+}
+.delete-btn{
+    @include subtitle-M();
+}
