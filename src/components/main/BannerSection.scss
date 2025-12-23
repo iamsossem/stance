@@ -27,8 +27,14 @@
 .banner-overlay{
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.35);
     z-index: 1;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.65) 0%,
+        rgba(0,0,0,0.35) 40%,
+        rgba(0,0,0,0.15) 70%,
+        rgba(0,0,0,0) 100%
+    );
 }
 
 .banner-content{
@@ -48,8 +54,66 @@
         opacity: 0.9;
         margin-bottom: 24px;
     }
-    button{
-        padding: 12px 32px;
+    .banner-link{
+        @include font-body;
+        font-size: 14px;
+        font-weight: 500;
+        color: #fff;
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        padding-bottom: 2px;
+        &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background: #fff;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        &:hover::after{
+            transform: scaleX(1);
+        }
+    }
+}
+.arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    &.left{
+        left: 24px;
+    }
+    &.right{
+        right: 24px;
+    }
+    &:hover{
+        background: rgba(255, 255, 255, 0.4);
+    }
+}
+.banner-progress{
+    position: absolute;
+    left: 80px;
+    bottom: 32px;
+    width: 80%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 2;
+    span{
+        display: block;
+        width: 40%;
+        height: 100%;
         background: #fff;
     }
 }

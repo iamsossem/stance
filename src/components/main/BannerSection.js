@@ -58,12 +58,15 @@ const BannerSection = () => {
       <div className="banner-content">
         <h1>PEACEY <br/> RUN YOUR FACE</h1>
         <p>러닝의 변화, 지금 시작하세요.</p>
-        <button>더보기 →</button>
+        <span className="banner-link">더보기 →</span>
       </div>
 
       {/* 화살표 */}
       <button className="arrow left" onClick={prevSlide}>＜</button>
       <button className="arrow right" onClick={nextSlide}>＞</button>
+      <div className="banner-progress">
+        <span />
+      </div>
     </section>
   );
 };
