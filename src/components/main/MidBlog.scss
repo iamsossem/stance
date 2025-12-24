@@ -1,6 +1,10 @@
 @use "../../assets/scss/mixins" as *;
 
 #event {
+    padding-bottom: 5rem;
+
+  .event-bg{
+  position: relative;
   padding: 2rem;
   @include flex-layout(column);
   background-color: var(--Static-black);
@@ -26,4 +30,29 @@
   > p {
     font-size: 0.875rem;
   }
+  .btn {
+    cursor: pointer;
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    @include flex-layout(row, space-between);
+    .prev {
+      font-size: 24px;
+      color: var(--Static-white);
+      @include flex-layout;
+      width: 48px;
+      height: 48px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .next {
+      font-size: 24px;
+      color: var(--Static-white);
+      @include flex-layout;
+      width: 48px;
+      height: 48px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
 }

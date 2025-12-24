@@ -32,6 +32,20 @@ const BannerSection2 = () => {
           <IoIosArrowForward />
         </div>
       </div>
+      <div className="indi-bottom">
+        <div className="indicator">
+          <span className="active"></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <div className="indi-txt">
+            <p>
+              더 보러가기 <IoIosArrowForward />
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

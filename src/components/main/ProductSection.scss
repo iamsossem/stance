@@ -1,51 +1,155 @@
 @use "../../assets/scss/mixins" as *;
 
-#best-seller,
-#paceypick {
-  h2 {
-  }
-  ul {
-    @include flex-layout(row, flex-start);
-    overflow: hidden;
-    width: 100%;
-    li {
-      position: relative;
-      width: 30rem;
-      height: 30rem;
-      background-color: rgba(245, 245, 245, 1);
-      img {
-        width: 20rem;
-        height: 20rem;
-        aspect-ratio: 1/1;
-        background-position: center;
-        background-size: cover;
-      }
-      h2 {
-        top: 275px;
-        left: 20px;
-        position: absolute;
-        font-size: 2.75rem;
-        font-style: italic;
-        color: var(--Primary-300);
-      }
-      .best-txt {
-        @include flex-layout(column, flex-start, flex-start, 0.75rem);
-        background-color: var(--Static-white);
-        padding: 1.25rem;
-        border-radius: 1px solid #0073e5;
+#best-seller {
+  width: 100%;
+  padding-bottom: 5rem;
 
-        P:nth-of-type(1) {
-          font-size: 0.875rem;
-          font-weight: bolder;
+  h2 {
+    padding: 0 3rem 14px;
+  }
+
+  .slider-wrap {
+    position: relative;
+    overflow: hidden;
+
+    ul.slider {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      transition: transform 0.5s ease;
+
+      li {
+        cursor: pointer;
+        flex: 0 0 25%;
+        background-color: rgba(245, 245, 245, 1);
+
+        .img-wrap {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 1 / 1;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            border-right: 1px solid #0073e5;
+          }
+
+          .num {
+            position: absolute;
+            left: 0;
+            bottom: -0.5rem;
+            font-size: 3rem;
+            font-style: italic;
+            color: var(--Primary-300);
+          }
+
+          .heart {
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            font-size: 28px;
+            cursor: pointer;
+            color: #aaa;
+            &:hover {
+              transition: 0.3s;
+              color: #ff4d6d;
+            }
+          }
         }
-        P:nth-of-type(2) {
-          font-weight: 400;
-        }
-        p:nth-of-type(3) {
-          font-weight: 400;
+        .best-txt {
+          border: 1px solid #0073e5;
+          border-left: none;
+          background-color: var(--Static-white);
+          padding: 1.25rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          > p.title {
+            font-size: 0.875rem;
+            font-weight: 700;
+          }
+          > p.sub1 {
+            font-size: 1.125rem;
+          }
+          .price {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            .original-price {
+              font-size: 0.875rem;
+              color: var(--Text-300);
+              text-decoration: line-through;
+            }
+            .price-row {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              .discount {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #0073e5;
+              }
+              .sale-price {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: #000;
+              }
+            }
+          }
         }
       }
-      .price {
+    }
+    .btn {
+      position: absolute;
+      top: 40%;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .prev,
+      .next {
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+        background: rgba(0, 0, 0, 0.2);
+        color: var(--Static-white);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+          background: rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+  }
+
+  .indi-bottom {
+    width: 100%;
+    padding-top: 3rem;
+    display: flex;
+    justify-content: center;
+
+    .indicator {
+      display: flex;
+      gap: 12px;
+      width: calc(100% - 150px);
+
+      span {
+        width: 100%;
+        height: 4px;
+        background-color: #e1e1e1;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        &.active {
+          background-color: var(--Primary-300);
+        }
+        &:hover {
+          background-color: #0073e5;
+        }
       }
     }
   }
