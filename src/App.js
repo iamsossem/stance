@@ -7,6 +7,7 @@ import CategoryPage from "./pages/CategoryPage";
 import "./assets/scss/global.scss";
 
 import { useState } from "react";
+import DetailPage from "./pages/DetailPage";
 const App = () => {
 
 
@@ -40,6 +41,7 @@ const App = () => {
             onUpdateQty={onUpdateQty}
             onDelete={onDelete} />} />
           <Route path="/category" element={<CategoryPage />} />
+          <Route path="/detail/:id" element={<DetailPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

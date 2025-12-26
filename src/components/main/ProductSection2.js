@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import listDate from "../../assets/data/Item.json";
 import "./ProductSection2.scss";
 import { FaRegHeart } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 
 const ProductSection2 = () => {
+  const navigate = useNavigate();
   const bestItems = listDate.filter((item) => item.category === "pick");
 
   const calculateDiscount = (price1, price2) => {
@@ -20,7 +22,7 @@ const ProductSection2 = () => {
             item.price2
           );
           return (
-            <li key={item.id}>
+            <li key={item.id} onClick={()=>{navigate(`/detail/${item.id}`)}}>
               <div className="img-wrap">
                 <img
                   src={require(`../../assets/images/Shoes/${item.image}`)}
