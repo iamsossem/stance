@@ -65,6 +65,7 @@
           }
           > p.sub1 {
             font-size: 1.125rem;
+            min-height: 4rem;
           }
           .price {
             display: flex;
@@ -80,7 +81,9 @@
                 color: #0073e5;
               }
               .sale-price {
-                font-size: 1.25rem;
+                font-size: clamp(1rem, 2.5vw, 1.25rem);
+                height: auto;
+                // font-size: 1.25rem;
                 font-weight: 700;
                 color: #000;
               }

@@ -115,9 +115,7 @@
         p {
           font-size: 1.125rem;
           color: var(--Primary-300);
-          display: flex;
-          align-items: center;
-          gap: 4px;
+          @include flex-layout(row, center, center, 4px);
           white-space: nowrap;
         }
       }

@@ -12,7 +12,7 @@ const ProductSection = () => {
 
   // 할인율 계산 함수
   const calculateDiscount = (price1, price2) => {
-     // 소수점 없이 할인율 계산
+    // 소수점 없이 할인율 계산
     return Math.floor(((price1 - price2) / price1) * 100);
   };
 
@@ -47,7 +47,7 @@ const ProductSection = () => {
             const discountPercentage = calculateDiscount(
               item.price1,
               item.price2
-            ); 
+            );
             return (
               <li key={idx}>
                 <div className="img-wrap">
@@ -67,7 +67,7 @@ const ProductSection = () => {
                     <div className="price-row">
                       <span className="discount">{discountPercentage}%</span>
                       <span className="sale-price">
-                        {item.price2.toLocaleString()}원
+                        {Number(item.price2).toLocaleString()}원
                       </span>
                     </div>
                   </div>
